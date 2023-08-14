@@ -1,15 +1,27 @@
 import "./App.css";
 import { Button, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
 function App() {
+    const MyCustomButton = styled(Button)(({ theme }) => ({
+        padding: theme.spacing(2),
+    }));
     return (
         <>
             <div className="App">
-                <Typography variant="h4">This is my app</Typography>
-                <Typography>Hit the like button</Typography>
-                <Button variant="contained" color="error">
+                <Typography variant="myVariant">This is my app</Typography>
+                <Typography sx={{ color: "customColor.main" }}>
+                    Hit the like button
+                </Typography>
+                <MyCustomButton
+                    sx={{
+                        p: 2,
+                    }}
+                    variant="contained"
+                    color="secondary"
+                >
                     Hello from MUI V5
-                </Button>
+                </MyCustomButton>
             </div>
         </>
     );
